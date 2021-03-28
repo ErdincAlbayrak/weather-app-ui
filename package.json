@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/ErdincAlbayrak/weather-app-ui/issues"
   },
-  "homepage": "https://github.com/ErdincAlbayrak/weather-app-ui#readme"
+  "homepage": "https://github.com/ErdincAlbayrak/weather-app-ui#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
 }
