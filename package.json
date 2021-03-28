@@ -1,0 +1,20 @@
+{
+  "name": "weather-app-ui",
+  "version": "1.0.0",
+  "description": "UI project for weather application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErdincAlbayrak/weather-app-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErdincAlbayrak/weather-app-ui/issues"
+  },
+  "homepage": "https://github.com/ErdincAlbayrak/weather-app-ui#readme"
+}
