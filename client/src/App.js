@@ -16,18 +16,20 @@ function App() {
 
     const [loadingData, setLoadingData] = useState(true);
     const [data, setData] = useState([]);
+    const [queryParameters, setQueryParameters] = useState("");
+    const [cityValue,setCityValue] = useState("");
+    const [dateValue,setDateValue] = useState("");
+
 
     async function getData() {
-        const response = await axios.get("http://localhost:8080/weather");
+        let address = "http://localhost:8080/weather" + queryParameters;
+        console.log("address = " + address);
+        const response = await axios.get(address);
         console.log("getting data");
         setData(response.data);
         setLoadingData(false);
     }
 
-    async function dosth() {
-
-        console.log("getting data");
-    }
 
     useEffect(() => {
         if (loadingData) {
@@ -46,16 +48,37 @@ function App() {
         }
     });
 
+
+
+    function dosth() {
+        // console.log("button functions");
+        // console.log("city value = " + cityValue);
+        // console.log("date value = " + dateValue);
+        let tmpParameters = "";
+        if(cityValue !==  "") {
+            tmpParameters += "/city/" + cityValue;
+        }
+        if(dateValue !==  "") {
+            tmpParameters += "/date/" + dateValue;
+        }
+        setQueryParameters(tmpParameters);
+        setLoadingData(true);
+    }
+    //let queryParameters = "";
+    //let cityValue = "";
+    //let dateValue = "";
+
     return (
         <div>
             <div>
-                <TextField id="filled-search" label="Search field" type="search" variant="filled" />
+                <TextField id="search" label="Search by city" type="search" variant="outlined" onChange={e => {setCityValue(e.target.value)}}/>
             </div>
             <div>
-                <TextField id="date" label="Date" type="date" class={useStyles.textField} InputLabelProps={{shrink: true,}}/>
+                <TextField id="date" label="Search by Date" type="date" className={useStyles.textField} InputLabelProps={{shrink: true,}}
+                           onChange={e => {setDateValue(e.target.value)}}/>
             </div>
             <div>
-                <Button id="searchButton" variant="outlined" color="primary" onClick={dosth()}>Search</Button>
+                <Button id="searchButton" variant="outlined" color="primary" onClick={dosth}>Search</Button>
             </div>
             <div>
                 <TableContainer component={Paper}>
